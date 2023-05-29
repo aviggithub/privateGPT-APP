@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
 """
 Create private Chat web application streamlit and private gpt
+for run this file command : streamlit run st_app.py
 @author: Avinash G
 """
+# -*- coding: utf-8 -*-
+"""
+Create private Chat web application streamlit and local gpt
+@author: Avinash G
+"""
+from dotenv import load_dotenv
 import streamlit as st
+from dotenv import load_dotenv
+from langchain.chains import RetrievalQA
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.vectorstores import Chroma
 from langchain.llms import GPT4All, LlamaCpp
 import os
 from fastapi import FastAPI, UploadFile, File
@@ -29,9 +41,9 @@ st.set_page_config(
 )
 
 
-def private_gpt_generate_msg(human_msg):
+def gpt_generate_msg(human_msg):
     embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
-    db = Chroma(persist_directory=persist_directory,collection_name=collection_name, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
+    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
     retriever = db.as_retriever()
     # Prepare the LLM
     callbacks = [StreamingStdOutCallbackHandler()]
@@ -41,18 +53,19 @@ def private_gpt_generate_msg(human_msg):
         case "GPT4All":
             llm = GPT4All(model=model_path, n_ctx=model_n_ctx, backend='gptj', callbacks=callbacks, verbose=False)
         case _default:
+            print(f"Model {model_type} not supported!")
             exit;
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True)
     
     # Get the answer from the chain
-    res = qa(human_msg)
-    print(res)   
-    answer, docs = res['result'], res['source_documents']
+    response = qa(human_msg)
+    #print(res)   
+    answer, docs = response['result'], response['source_documents']
     return answer
 	
 
 
-st.header("Create AI Chat App using Local GPT Python")
+st.header("Private GPT WebAPP")
 
 if 'Bot_msg' not in st.session_state:
     st.session_state['Bot_msg'] = []
@@ -70,7 +83,7 @@ user_input = get_text()
 
 if user_input:
     st.session_state.History_msg.append(user_input)
-    st.session_state.Bot_msg.append(Bot_generate_msg(user_input))
+    st.session_state.Bot_msg.append(gpt_generate_msg(user_input))
 
 if st.session_state['Bot_msg']:
     for i in range(len(st.session_state['Bot_msg'])-1, -1, -1):
