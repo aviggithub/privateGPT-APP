@@ -13,7 +13,6 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.vectorstores import Chroma
 from langchain.llms import GPT4All, LlamaCpp
 import os
-from fastapi import FastAPI, UploadFile, File
 from typing import List, Optional
 import urllib.parse
 
