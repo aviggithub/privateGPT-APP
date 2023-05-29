@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Create private Chat web application streamlit and private gpt
-for run this file command : streamlit run st_app.py
+for run this file command : streamlit run private_gpt_webapp.py
 @author: Avinash G
 """
 from dotenv import load_dotenv
