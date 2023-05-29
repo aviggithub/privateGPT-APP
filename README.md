@@ -95,6 +95,9 @@ Note: you could turn off your internet connection, and the script inference woul
 
 Type `exit` to finish the script.
 
+### CLI
+The script also supports optional command-line arguments to modify its behavior. You can see a full list of these arguments by running the command ```python privateGPT.py --help``` in your terminal.
+
 ## Ask questions to your documents, locally using streamlit UI run command
 run a command like:
 ```shell
@@ -103,9 +106,6 @@ streamlit run private_gpt_webapp.py
 
 ![ui_private_gpt](https://github.com/aviggithub/privateGPT-APP/assets/46967951/f2e289bb-f02b-49ff-81bd-f417c759531f)
 
-
-### CLI
-The script also supports optional command-line arguments to modify its behavior. You can see a full list of these arguments by running the command ```python privateGPT.py --help``` in your terminal.
 
 
 # How does it work?
