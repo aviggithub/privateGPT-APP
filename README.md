@@ -99,6 +99,7 @@ Type `exit` to finish the script.
 run a command like:
 ```shell
 streamlit run private_gpt_webapp.py
+```
 
 ### CLI
 The script also supports optional command-line arguments to modify its behavior. You can see a full list of these arguments by running the command ```python privateGPT.py --help``` in your terminal.
