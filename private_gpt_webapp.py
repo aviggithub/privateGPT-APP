@@ -4,11 +4,6 @@ Create private Chat web application streamlit and private gpt
 for run this file command : streamlit run st_app.py
 @author: Avinash G
 """
-# -*- coding: utf-8 -*-
-"""
-Create private Chat web application streamlit and local gpt
-@author: Avinash G
-"""
 from dotenv import load_dotenv
 import streamlit as st
 from dotenv import load_dotenv
@@ -63,8 +58,6 @@ def gpt_generate_msg(human_msg):
     answer, docs = response['result'], response['source_documents']
     return answer
 	
-
-
 st.header("Private GPT WebAPP")
 
 if 'Bot_msg' not in st.session_state:
