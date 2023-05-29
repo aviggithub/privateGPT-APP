@@ -99,7 +99,8 @@ Type `exit` to finish the script.
 run a command like:
 ```shell
 streamlit run private_gpt_webapp.py
-```
+```![ui_private_gpt](https://github.com/aviggithub/privateGPT-APP/assets/46967951/f2e289bb-f02b-49ff-81bd-f417c759531f)
+
 
 ### CLI
 The script also supports optional command-line arguments to modify its behavior. You can see a full list of these arguments by running the command ```python privateGPT.py --help``` in your terminal.
@@ -136,5 +137,4 @@ When running a Mac with Intel hardware (not M1), you may run into _clang: error:
 If so set your archflags during pip install. eg: _ARCHFLAGS="-arch x86_64" pip3 install -r requirements.txt_
 
 # Disclaimer
-This is a test project to validate the feasibility of a fully private solution for question answering using LLMs and Vector embeddings. It is not production ready, and it is not meant to be used in production. The models selection is not optimized for performance, but for privacy; but it ![ui_private_gpt](https://github.com/aviggithub/privateGPT-APP/assets/46967951/7a618ec6-92b6-4901-b315-fd041ca4de98)
-is possible to use different models and vectorstores to improve performance.
+This is a test project to validate the feasibility of a fully private solution for question answering using LLMs and Vector embeddings. It is not production ready, and it is not meant to be used in production. The models selection is not optimized for performance, but for privacy; but it is possible to use different models and vectorstores to improve performance.
