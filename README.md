@@ -99,7 +99,9 @@ Type `exit` to finish the script.
 run a command like:
 ```shell
 streamlit run private_gpt_webapp.py
-```![ui_private_gpt](https://github.com/aviggithub/privateGPT-APP/assets/46967951/f2e289bb-f02b-49ff-81bd-f417c759531f)
+```
+
+![ui_private_gpt](https://github.com/aviggithub/privateGPT-APP/assets/46967951/f2e289bb-f02b-49ff-81bd-f417c759531f)
 
 
 ### CLI
